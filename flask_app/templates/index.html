@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<style type="text/css">
+		
+		#header{
+	background-color: grey;
+	width: max-width;
+	height: 151px;
+	text-align: center;
+	text-decoration-color: white;
+	font-size: 25px;
+	margin: auto;
+	vertical-align: middle;
+	line-height: 150px;	
+}
+
+#forms{
+	background-color: lightblue;
+	font-size: 18px;
+	margin: auto;
+	width: 800px;
+	height: 650px;
+}
+
+input{
+	margin-right: 160px;
+	font-size: 15px;
+
+
+}
+select{
+	font-size: 18px;
+}
+.button {
+  text-align: center;
+  font-size: 50px;
+  margin-left: 150px;
+}
+
+
+	</style>
+	
+
+
+	<title>Heart Disease Predictor</title>
+</head>
+<body>
+	
+	<img src="https://media.istockphoto.com/vectors/red-heartbeat-line-in-a-shape-of-heart-on-white-background-vector-of-vector-id984444896?b=1&k=6&m=984444896&s=612x612&w=0&h=6pUc5h8a0LvSKxDNivLwBgedqPdpmzrG-mNuAERNkyE=" height="150px" width="200px" style="float: right">
+	
+	<div id='header'>
+		<h2 style="vertical-align: middle" > Heart Disease Estimator using ML </h2>		
+
+
+    </div>
+    <br>
+    <br>
+
+    <div id="forms">
+    	
+    	<form action="/predict" method="POST" >
+    		<table style="margin-right: auto; margin-left: 40px; border-spacing: 0 25px; border-collapse: separate;">
+    			<tr>
+    				<th>Age: </th>
+    				<td><input type="number" name="age"></td>
+
+    				<th>Sex: </th>
+    				<td><select name="sex" id="sex">
+    						<option>Male</option>
+    						<option>Female</option>
+    					</select>
+    				</td>	
+    			</tr>
+    			<tr>
+    				<th>Chest Pain type: </th>
+    				<td>
+						<select name="chest" id="chest">
+							<option value="" selected disabled hidden>Choose here</option>
+			    			<option>1</option>
+			    			<option>2</option>
+			    			<option>3</option>
+			    			<option>4</option>
+			    		</select>
+    				</td>
+
+    				<th>Resting B.P: </th>
+    				<td><input type="number" name="rbp"></td>
+    			</tr>
+
+    			<tr>
+    				<th>Cholestrol Levels: </th>
+    				<td><input type="number" name="Cholestrol"></td>
+    				<th>Fasting Blood Sugar: </th>
+    				<td><select name="sugar" id="sugar">
+    					<option value="" selected disabled hidden>Choose here</option>
+    					<option>1 (>120mg/dl)</option>
+    					<option>0 (<120mg/dl)</option>
+    				</select></td>
+    			</tr>
+
+    			<tr>
+    				<th>Resting ECG Result: </th>
+    				<td><select name="ecg" id="ecg">
+    					<option value="" selected disabled hidden>Choose here</option>
+    					<option>0</option>
+    					<option>1</option>
+    					<option>2</option>
+    				</select></td>
+
+    				<th>Max Heart Rate: </th>
+    				<td><input type="number" name="heartrate"></td>
+    			</tr>
+
+    			<tr>
+    				<th>Excercise induced Angina: </th>
+    				<td><select name="Angina" id="Angina">
+    					<option value="" selected disabled hidden>Choose here</option>
+    					<option>Yes</option>
+    					<option>No</option>
+    					</select></td>
+    				<th>Oldpeak (ST depression) Value: </th>
+    				<td><input type="number" name="Oldpeak"></td>
+    			</tr>
+
+    			<tr>
+    				<th>Slope of ST: </th>
+    				<td><select name="Slope" id="Slope">
+    					<option value="" selected disabled hidden>Choose here</option>
+    					<option>0</option>
+    					<option>1</option>
+    					<option>2</option>
+    				</select></td>
+
+    				<th>No. of major vessels: </th>
+    				<td><select name="vessels" id="vessels">
+    					<option value="" selected disabled hidden>Choose here</option>
+    					<option>0</option>
+    					<option>1</option>
+    					<option>2</option>
+    					<option>3</option>
+    				</select></td>
+    			</tr>
+
+    			<tr>
+    				<th>CSR Result: </th>
+    				<td><select name="CSR" id="CSR">
+    					<option value="" selected disabled hidden>Choose here</option>
+    					<option>0 (Normal)</option>
+    					<option>1 (Fixed Defect)</option>
+    					<option>2 (Reversible Defect)</option> 
+    				</select></td>
+    			</tr>
+
+    				
+    		</table>
+       		<div class="button">
+    			<input type="submit" value="Predict!">    		
+    		</div>
+    		
+    	</form>
+
+    </div>
+
+    <div>
+        {{ prediction }}
+    </div>
+</body>
+</html>
