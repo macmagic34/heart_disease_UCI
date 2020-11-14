@@ -9,7 +9,6 @@ autopep8    ==              1.5.4
 babel         ==            2.8.0                      
 backcall        ==          0.2.0                      
 bcrypt       ==             3.2.0            
-blas        ==              1.0                         
 bleach      ==              3.2.1                      
 brotlipy      ==            0.7.0           
 ca-certificates ==          2020.10.14                    
