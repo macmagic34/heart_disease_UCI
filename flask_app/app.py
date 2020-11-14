@@ -11,10 +11,8 @@ from sklearn.preprocessing import StandardScaler
 import pandas as pd
 import numpy as np
 
-model = pickle.load(open('LRModel.pkl', 'rb'))
+model = pickle.load(open('RFModel_5_in.pkl', 'rb'))
 df = pd.read_csv('heart.csv')
-ss = StandardScaler()
-ss.fit(df[['ca', 'cp', 'exang', 'oldpeak', 'thal']])
 
 
 
@@ -33,22 +31,24 @@ def predict():
         oldpeak = request.form['Oldpeak']
         vessel = request.form['vessels']
         csr = request.form['CSR']
-
+        sex = request.form['sex']
         sex_dict = {'Male':1, 'Female':0} 
         angina_dict = {'Yes':1, 'No':0}
 # =============================================================================
-        features = [vessel, cp, angina_dict[angina], oldpeak,  csr.split()[0]]
-        ss.transform(features)
-#        val = model.predict(features)
+        features = [np.array([int(vessel), int(cp), int(angina_dict[angina]), int(oldpeak),  sex_dict[sex]])]
+        val = model.predict(features)
+        if val[0]==0:
+            text = 'Your heart is healthy'
+        else:
+            text = 'Your heart is unhealthy'
 # =============================================================================
     except:
 # =============================================================================
         return '''<h2>One or more values were not selected before predicting, please try again..</h2>
-                    values collected: {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}
-                    '''.format(cp, angina_dict[angina], oldpeak, vessel, csr.split()[0])
+                    '''
 # =============================================================================
 
-    return "hi"
+    return render_template('index.html', prediction= text)
 
 
 
