@@ -25,7 +25,6 @@ docutils            ==      0.16
 entrypoints     ==          0.3                      
 flake8           ==         3.8.4                      
 flask             ==        1.1.2                      
-freetype         ==         2.10.4               
 future        ==            0.18.2                   
 icc_rt         ==           2019.0.0             
 icu            ==           58.2                 
