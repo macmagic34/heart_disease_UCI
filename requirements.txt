@@ -27,7 +27,6 @@ flake8           ==         3.8.4
 flask             ==        1.1.2                      
 future        ==            0.18.2                   
 icc_rt         ==           2019.0.0             
-icu            ==           58.2                 
 idna            ==          2.10                       
 imagesize         ==        1.2.0                      
 importlib-metadata  ==      2.0.0                      
